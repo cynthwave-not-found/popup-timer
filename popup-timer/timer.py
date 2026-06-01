@@ -24,15 +24,15 @@ class TimerApp:
         self.pause = False
         self.paused_time = 0.0
 
-#load nunito font
-        success = self.load_custom_font("fonts/Nunito-Regular.ttf")
+        self.create_widgets()
+        self.root.bind("<space>",self.on_space)
+#load nunito font: disabled for simplicity
+#note: the nunito font version is available on the subbranch {fonts}
+'''        success = self.load_custom_font("fonts/Nunito-Regular.ttf")
         if success: 
             nunito_font = tk.font.Font(family="Nunito", size=14, weight="bold")
         else: 
             print("Failed to load Nunito font")
-
-        self.create_widgets()
-        self.root.bind("<space>",self.on_space)
 
     def load_custom_font(self, font_path: str) -> bool: 
         try: 
@@ -53,7 +53,7 @@ class TimerApp:
         except Exception as e: 
             print (f"Error loading font: {e}")
             return False
-
+'''
     def create_widgets(self): 
         title = CTkLabel(self.root, text="Timer", font=("Nunito", 28, "bold"))
         title.pack(pady=10)
